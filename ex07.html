@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ex07</title>
+</head>
+<body>
+
+	<h3>input</h3>
+	- 데이터를 입력받는 태그<br>
+	- type속성에 따라 형식이 달라진다<br>
+	<input type="button" value="버 튼"><br>
+	<input type="submit" value="서브밋"><br>
+	<input type="reset" value="초기화"><br>
+	<input type="image" src="ryon.png" width="50"><br>
+	<input type="file" value=""><br>
+	<hr>
+	
+	<input type="text" value="값 입력"><br>
+	<input type="password" value="비밀번호"><br>
+	<input type="email" placeholder="test@test.t"><br>
+	<input type="search" value="값 입력시 x 버튼 생성"><br>
+	<input type="tel" value="010-555-555"><br>
+	<input type="number" min="1" max="10" value="1"><br>
+	<hr>
+	
+	<input type="color"><br>
+	<input type="range"><br>
+	<input type="radio"><br>
+	<input type="checkbox"><br>
+	<input type="hidden" value="값을 숨김"><br>
+	<!-- 웹페이지상에서 F12를 눌러서 확인 가능 -->
+	<input type="text" value="읽기전용" readonly="readonly"><br>
+	
+	
+	10대<input type="radio" name="age" checked="checked">
+	20대<input type="radio" name="age">
+	30대<input type="radio" name="age">
+	40대<input type="radio" name="age">
+	<!-- name속성을 주면 같은 name에 대해서는 하나만 선택이 가능하다 -->
+	<!-- checked 속성으로 미리 체크해 둘 수 있다 -->
+	
+	<hr>
+	
+	10대<input type="checkbox" checked="checked">
+	20대<input type="checkbox">
+	30대<input type="checkbox">
+	40대<input type="checkbox">
+	
+	<hr>
+	
+	<form action="ex06.html" >
+	<!-- action : 작성한 것들을 전송할 위치(submit을 눌렀을때 이동할 위치) -->
+	<input type="text" name="name" placeholder="input name"><br>
+	<input type="text" name="addr" placeholder="input address"><br>
+	<textarea rows="3" name="con" cols="50" placeholder="내용"></textarea><br>
+	<input type="reset" value="초기화">
+	<input type="submit" value="제출" >
+	<input type="button" value="버튼">
+	<!-- 초기화와 제출은 반드시 form태그로 묶여야 사용이 가능하다 -->
+	<!-- 버튼은 javascripts와 연동해서 사용해야 한다 -->
+	<!-- input에 name속성을 부여하고 그걸 사용해서 다른 페이지에서 그 값을 사용할 수 있다 -->
+	</form>
+	
+	<hr>
+	
+	<!-- <form method="get"> -->
+	<!-- method의 default값은 get이다 -->
+	<!-- 눈에 보여도 상관없고 용량이 적은 것들은 get을 사용한다 -->
+	
+	<form method="get">
+	<!-- post방식으로 전달하게 되면 입력한 값이 url에 보이지 않는다 -->
+	<!-- 보통 사용자의 정보를 갖고있는 내용들은 post방식으로 보안을 좋게한다 -->
+		<select size="1" name="test">
+		<!-- size옵션은 페이지 상에서 눈에 보이는 사이즈를 말한다 -->
+			<option value="apple">사과
+			<!-- value옵션을 추가해서 실제로 넘기는 값을 알 수 있다 -->
+			<!-- get방식으로 수정해서 확인하면 url값이 바뀌는걸 알 수 있다 -->
+			<option>수박
+			<option>딸기
+		</select>
+		
+		10대<input type="radio" name="age" value="10">
+		20대<input type="radio" name="age" value="20">
+		<!-- radio 타입은 value를 설정하지 않으면 'on'이라는 값이 전달된다 -->
+		
+		<label style="background: red;">
+			aaa
+		</label>
+		<!-- label은 보통 input태그와 같이 짝을 이뤄서 사용한다 -->
+		<input type="submit" value="submit">
+	</form>
+	
+	
+	<h3>label</h3>
+	- input, textarea, select들의 제목을 넣는 태그
+	
+	<form action="">
+		<fieldset>
+			<legend>취미조사</legend><!-- 테두리를 만들어주는 태그 -->
+			<input id="id"><br>
+			<!-- id : 현재 페이지에서 이름을 구분하기위한 값  -->
+			<!-- name : 현재와 다른 페이지에서 구분하기 위한 속성 -->
+			
+			<label for="h1">책읽기</label>
+			<input type="checkbox" name="hobby" value="1" id="h1">
+			<!-- 이렇게 설정하면 체크박스가 아닌 글을 눌러도 체크됨 -->
+			
+			<label>멍타기</label>
+			<input type="checkbox" name="hobby" value="2">
+			
+			<label>게임</label>
+			<input type="checkbox" name="hobby" value="3">
+			<!-- value를 적지않으면 마찬가지로 on값이 들어간다 -->
+			
+			<label for="id">아이디</label>
+		</fieldset>
+		<input type="submit" value="전송">
+	</form>
+	
+	required : 필수 입력 사항이 되며 검증까지 해준다<br>
+	pattern : 정규 표현식을 넣어서 사용하며 \d는 숫자의미 {n} 숫자 개수의미<br>
+	readonly : 읽기 전용<br>
+	disabled : 비활성화<br>
+	
+	<form action = "ex06.html">
+		<input type="text" placeholder="아이디" required="required"><br>
+		<!-- required옵션을 사용해서 반드시 입력하게 할 수 있다 -->
+		
+		<input type="email" placeholder="test@t.t" ><br>
+		<input type="tel" placeholder="010-xxxx-xxxx"
+			pattern="\d{3}-\d{3,4}-\d{4}"><br>
+		
+		<input type="submit" value="submit">
+		<input type="button" value="button">
+		
+		<hr>
+		
+		<button disabled="disabled">버튼1</button>
+		<!-- type을 입력하지 않으면 submit과 같은 기능을 한다 -->
+		<!-- disabled : 비활성화 -->
+		<button type="button">버튼2</button>
+		
+		<hr>
+		
+		
+	</form>
+	
+	div & span<br>
+	- 태그들 그룹화할 경우 사용<br>
+	- 그룹화가 되면 css적용시 편리하다<br>
+	- div : 앞라인, 블록 태그 모두 포함<br>
+	- span : 인라인 태그만 포함<br>
+	
+	<div style = "background: aqua;">블록</div>
+	<span style = "background: blue;">인라인 방식</span>
+	
+	<br>
+	
+	<div style = "background: aqua;">
+		<span style = "background: blue;">인라인 방식</span>
+		<Br>
+		<span style = "background: blue;">인라인 방식</span>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<br><br><br><br><br><br><br><br><br><br><br>
+
+</body>
+</html>
